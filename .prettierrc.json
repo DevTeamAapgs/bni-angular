@@ -1,8 +1,0 @@
-{
-  "trailingComma": "es5",
-  "tabWidth": 4,
-  "useTabs": true,
-  "proseWrap": "always",
-  "printWidth": 1000,
-  "htmlWhitespaceSensitivity":"ignore"
-}
