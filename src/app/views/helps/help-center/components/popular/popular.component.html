@@ -1,0 +1,26 @@
+<div class="row align-items-center">
+  <div class="col-12">
+    <div class="card card-body p-4">
+      <div class="text-center mb-4">
+        <h4>Popular questions</h4>
+      </div>
+
+      <div
+        class="list-group list-group-horizontal gap-2 flex-wrap justify-content-center mb-0 border-0"
+      >
+        @for (item of allQuestionsData; track $index) {
+          <a
+            class="btn btn-light btn-sm fw-light"
+            [routerLink]="'help-details'"
+            >{{ item.text }}</a
+          >
+        }
+        <a
+          class="btn btn-primary-soft btn-sm fw-light"
+          href="javascript:void(0);"
+          >View all question</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

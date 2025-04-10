@@ -1,0 +1,75 @@
+<section
+  class="pt-5 pb-0 position-relative"
+  style="
+    background-image: url(assets/images/bg/07.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+  "
+>
+  <div class="bg-overlay bg-dark opacity-8"></div>
+
+  <div class="container">
+    <div class="pt-5">
+      <div class="row position-relative">
+        <div class="col-xl-8 col-lg-10 mx-auto pt-sm-5 text-center">
+          <h1 class="text-white">Find events near you</h1>
+          <p class="text-white">
+            Let's uncover the best places to eat, drink, and shop nearest to
+            you.
+          </p>
+          <div class="mx-auto bg-mode shadow rounded p-4 mt-5">
+            <h5 class="mb-3 text-start">We will help you to find all</h5>
+
+            <form class="row g-3 justify-content-center">
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input
+                    class="form-control form-control-lg me-1 pe-5"
+                    type="text"
+                    placeholder="What"
+                  />
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="input-group">
+                  <input
+                    class="form-control form-control-lg me-1 pe-5"
+                    type="text"
+                    placeholder="Where"
+                  />
+                  <a
+                    class="position-absolute top-50 end-0 translate-middle-y text-secondary px-3 z-index-9"
+                    href="javascript:void(0);"
+                  >
+                    <i class="fa-solid fa-crosshairs"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-2 d-grid">
+                <a class="btn btn-lg btn-primary" href="javascript:void(0);"
+                  >Search</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="mb-n5 mt-3 mt-lg-5">
+          <div class="col-xl-9 col-lg-11 mx-auto">
+            <div class="d-md-flex gap-3 mt-5">
+              @for (item of allEventData; track $index) {
+                <a
+                  [routerLink]="'events'"
+                  class="card card-body mb-3 mb-lg-0 p-3 text-center"
+                >
+                  <img class="h-40px mb-3" [src]="item.imageUrl" alt="" />
+                  <h6>{{ item.title }}</h6>
+                </a>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

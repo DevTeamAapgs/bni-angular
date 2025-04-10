@@ -1,0 +1,1116 @@
+<div class="row g-4">
+  <div class="col-lg-8 vstack gap-4">
+    <div class="card card-body">
+      <div class="d-flex mb-3">
+        <div class="avatar avatar-xs me-2">
+          <a href="javascriptvoid(0);">
+            <img
+              class="avatar-img rounded-circle"
+              src="assets/images/avatar/03.jpg"
+              alt=""
+            />
+          </a>
+        </div>
+        <form class="w-100">
+          <input
+            class="form-control pe-4 border-0"
+            placeholder="Share your thoughts..."
+            data-bs-toggle="modal"
+            data-bs-target="#modalCreateFeed"
+          />
+        </form>
+      </div>
+      <ul class="nav nav-pills nav-stack small fw-normal">
+        <li class="nav-item">
+          <a
+            class="nav-link bg-light py-1 px-2 mb-0"
+            (click)="openPhoto(photo)"
+            href="javascript:void(0);"
+            data-bs-toggle="modal"
+            data-bs-target="#feedActionPhoto"
+          >
+            <i class="bi bi-image-fill text-success pe-2"></i>Photo</a
+          >
+        </li>
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link bg-light py-1 px-2 mb-0"
+            (click)="openVideo(feedModal)"
+            href="javascript:void(0);"
+            data-bs-toggle="modal"
+            data-bs-target="#feedActionVideo"
+          >
+            <i class="bi bi-camera-reels-fill text-info pe-2"></i>Video</a
+          >
+        </li> -->
+        <li class="nav-item">
+          <a
+            href="javascript:void(0);"
+            (click)="openEvent(createEvent)"
+            class="nav-link bg-light py-1 px-2 mb-0"
+            data-bs-toggle="modal"
+            data-bs-target="#modalCreateEvents"
+          >
+            <i class="bi bi-calendar2-event-fill text-danger pe-2"></i>Event
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link bg-light py-1 px-2 mb-0"
+            (click)="openFeeling(content)"
+            href="javascript:void(0);"
+            data-bs-toggle="modal"
+            data-bs-target="#modalCreateFeed"
+          >
+            <i class="bi bi-emoji-smile-fill text-warning pe-2"></i>Feeling
+            /Activity</a
+          >
+        </li>
+        <li class="nav-item dropdown ms-xl-auto" ngbDropdown>
+          <a
+            class="nav-link bg-light py-1 px-2 mb-0 arrow-none"
+            ngbDropdownToggle
+            href="javascript:void(0);"
+            id="feedActionShare"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-three-dots"></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            ngbDropdownMenu
+            aria-labelledby="feedActionShare"
+          >
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">
+                <i class="bi bi-envelope fa-fw pe-2"></i>Create a poll</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">
+                <i class="bi bi-bookmark-check fa-fw pe-2"></i>Ask a question
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">
+                <i class="bi bi-pencil-square fa-fw pe-2"></i>Help</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header border-0 pb-0">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <div class="avatar avatar-story me-2">
+              <a href="javascript:void(0);">
+                <img
+                  class="avatar-img rounded-circle"
+                  src="assets/images/avatar/04.jpg"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div>
+              <div class="nav nav-divider">
+                <h6 class="nav-item card-title mb-0">
+                  <a href="javascript:void(0);"> Lori Ferguson </a>
+                </h6>
+                <span class="nav-item small"> 2hr</span>
+              </div>
+              <p class="mb-0 small">Web Developer at Techzaa</p>
+            </div>
+          </div>
+
+          <div class="dropdown" ngbDropdown>
+            <a
+              href="javascriptvoid(0);"
+              ngbDropdownToggle
+              class="text-secondary btn btn-secondary-soft-hover py-1 px-2 arrow-none"
+              id="cardFeedAction1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-three-dots"></i>
+            </a>
+
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              ngbDropdownMenu
+              aria-labelledby="cardFeedAction1"
+            >
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-bookmark fa-fw pe-2"></i>Save post</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-person-x fa-fw pe-2"></i>Unfollow lori
+                  ferguson
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-x-circle fa-fw pe-2"></i>Hide post</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-slash-circle fa-fw pe-2"></i>Block</a
+                >
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-flag fa-fw pe-2"></i>Report post</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <p>
+          I'm thrilled to share that I've completed a graduate certificate
+          course in project management with the president's honor roll.
+        </p>
+
+        <img class="card-img" src="assets/images/post/3by2/01.jpg" alt="Post" />
+
+        <ul class="nav nav-stack py-3 small">
+          <li class="nav-item">
+            <a class="nav-link active" href="javascript:void(0);">
+              <i class="bi bi-hand-thumbs-up-fill pe-1"></i>Liked (56)</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);">
+              <i class="bi bi-chat-fill pe-1"></i>Comments (12)</a
+            >
+          </li>
+
+          <li class="nav-item dropdown ms-sm-auto" ngbDropdown>
+            <a
+              class="nav-link mb-0 arrow-none"
+              href="javascriptvoid(0);"
+              ngbDropdownToggle
+              id="cardShareAction8"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-reply-fill flip-horizontal ps-1"></i>Share (3)
+            </a>
+
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="cardShareAction8"
+              ngbDropdownMenu
+            >
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-envelope fa-fw pe-2"></i>Send via Direct
+                  Message</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-bookmark-check fa-fw pe-2"></i>Bookmark
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-link fa-fw pe-2"></i>Copy link to post</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-share fa-fw pe-2"></i>Share post via …</a
+                >
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-pencil-square fa-fw pe-2"></i>Share to News
+                  Feed</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="d-flex mb-3">
+          <div class="avatar avatar-xs me-2">
+            <a href="javascript:void(0);">
+              <img
+                class="avatar-img rounded-circle"
+                src="assets/images/avatar/12.jpg"
+                alt=""
+              />
+            </a>
+          </div>
+
+          <form class="position-relative w-100">
+            <textarea
+              class="form-control pe-4 bg-light"
+              rows="1"
+              placeholder="Add a comment..."
+            ></textarea>
+          </form>
+        </div>
+
+        <ul class="comment-wrap list-unstyled">
+          <li class="comment-item">
+            <div class="d-flex position-relative">
+              <div class="comment-line-inner"></div>
+
+              <div class="avatar avatar-xs">
+                <a href="javascript:void(0);"
+                  ><img
+                    class="avatar-img rounded-circle"
+                    src="assets/images/avatar/05.jpg"
+                    alt=""
+                /></a>
+              </div>
+              <div class="ms-2">
+                <div class="bg-light rounded-start-top-0 p-3 rounded">
+                  <div class="d-flex justify-content-center">
+                    <div class="me-2">
+                      <h6 class="mb-1">
+                        <a href="javascript:void(0);"> Frances Guerrero </a>
+                      </h6>
+                      <p class="small mb-0">
+                        Removed demands expense account in outward tedious do.
+                        Particular way thoroughly unaffected projection.
+                      </p>
+                    </div>
+                    <small>5hr</small>
+                  </div>
+                </div>
+
+                <ul class="nav nav-divider py-2 small">
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);"> Like (3)</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);"> Reply</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);">
+                      View 5 replies</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <ul class="comment-item-nested list-unstyled">
+              <li class="comment-item">
+                <div class="comment-line-inner"></div>
+                <div class="d-flex">
+                  <div class="avatar avatar-xs">
+                    <a href="javascript:void(0);"
+                      ><img
+                        class="avatar-img rounded-circle"
+                        src="assets/images/avatar/06.jpg"
+                        alt=""
+                    /></a>
+                  </div>
+
+                  <div class="ms-2">
+                    <div class="bg-light p-3 rounded">
+                      <div class="d-flex justify-content-center">
+                        <div class="me-2">
+                          <h6 class="mb-1">
+                            <a href="javascript:void(0);"> Lori Stevens </a>
+                          </h6>
+                          <p class="small mb-0">
+                            See resolved goodness felicity shy civility domestic
+                            had but Drawings offended yet answered Jennings
+                            perceive.
+                          </p>
+                        </div>
+                        <small>2hr</small>
+                      </div>
+                    </div>
+
+                    <ul class="nav nav-divider py-2 small">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">
+                          Like (5)</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">
+                          Reply</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+              <li class="comment-item">
+                <div class="comment-line-inner"></div>
+                <div class="d-flex">
+                  <div class="avatar avatar-story avatar-xs">
+                    <a href="javascript:void(0);"
+                      ><img
+                        class="avatar-img rounded-circle"
+                        src="assets/images/avatar/07.jpeg"
+                        alt=""
+                    /></a>
+                  </div>
+
+                  <div class="ms-2">
+                    <div class="bg-light p-3 rounded">
+                      <div class="d-flex justify-content-center">
+                        <div class="me-2">
+                          <h6 class="mb-1">
+                            <a href="javascript:void(0);"> Billy Vasquez </a>
+                          </h6>
+                          <p class="small mb-0">
+                            Wishing calling is warrant settled was lucky.
+                          </p>
+                        </div>
+                        <small>15min</small>
+                      </div>
+                    </div>
+
+                    <ul class="nav nav-divider py-2 small">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"> Like</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">
+                          Reply</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <a
+              [class.active]="isActive === true"
+              (click)="isActive = !isActive"
+              href="javascript:void(0);"
+              role="button"
+              class="btn btn-link btn-link-loader btn-sm text-secondary d-flex align-items-center mb-3 ms-5"
+              data-bs-toggle="button"
+              aria-pressed="true"
+            >
+              <div class="spinner-dots me-2">
+                <span class="spinner-dot"></span>
+                <span class="spinner-dot"></span>
+                <span class="spinner-dot"></span>
+              </div>
+              Load more replies
+            </a>
+          </li>
+
+          <li class="comment-item">
+            <div class="d-flex">
+              <div class="avatar avatar-xs">
+                <a href="javascript:void(0);"
+                  ><img
+                    class="avatar-img rounded-circle"
+                    src="assets/images/avatar/05.jpg"
+                    alt=""
+                /></a>
+              </div>
+
+              <div class="ms-2">
+                <div class="bg-light p-3 rounded">
+                  <div class="d-flex justify-content-center">
+                    <div class="me-2">
+                      <h6 class="mb-1">
+                        <a href="javascript:void(0);"> Frances Guerrero </a>
+                      </h6>
+                      <p class="small mb-0">
+                        Removed demands expense account in outward tedious do.
+                        Particular way thoroughly unaffected projection.
+                      </p>
+                    </div>
+                    <small>4min</small>
+                  </div>
+                </div>
+
+                <ul class="nav nav-divider pt-2 small">
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);"> Like (1)</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);"> Reply</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);">
+                      View 6 replies</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card-footer border-0 pt-0">
+        <a
+          [class.active]="isSpinner === true"
+          (click)="isSpinner = !isSpinner"
+          href="javascript:void(0);"
+          role="button"
+          class="btn btn-link btn-link-loader btn-sm text-secondary d-flex align-items-center"
+          data-bs-toggle="button"
+          aria-pressed="true"
+        >
+          <div class="spinner-dots me-2">
+            <span class="spinner-dot"></span>
+            <span class="spinner-dot"></span>
+            <span class="spinner-dot"></span>
+          </div>
+          Load more comments
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="border-bottom">
+        <p class="small mb-0 px-4 py-2">
+          <i class="bi bi-heart-fill text-danger pe-1"></i>Rakesh Babu likes this
+          post
+        </p>
+      </div>
+
+      <div class="card-header border-0 pb-0">
+        <div
+          class="d-flex align-items-center justify-content-between"
+          ngbDropdown
+        >
+          <div class="d-flex align-items-center">
+            <div class="avatar me-2">
+              <a href="javascriptvoid(0);">
+                <img
+                  class="avatar-img rounded-circle"
+                  src="assets/images/logo/13.svg"
+                  alt=""
+                />
+              </a>
+            </div>
+
+            <div>
+              <h6 class="card-title mb-0">
+                <a href="javascript:void(0);"> Apple Education </a>
+              </h6>
+              <p class="mb-0 small">9 November at 23:29</p>
+            </div>
+          </div>
+
+          <a
+            href="javascriptvoid(0);"
+            ngbDropdownToggle
+            class="text-secondary btn btn-secondary-soft-hover py-1 px-2"
+            id="cardShareAction5"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-three-dots"></i>
+          </a>
+
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            ngbDropdownMenu
+            aria-labelledby="cardShareAction5"
+          >
+            <li>
+              <a class="dropdown-item" href="javascriptvoid(0);">
+                <i class="bi bi-bookmark fa-fw pe-2"></i>Save post</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascriptvoid(0);">
+                <i class="bi bi-person-x fa-fw pe-2"></i>Unfollow lori ferguson
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascriptvoid(0);">
+                <i class="bi bi-x-circle fa-fw pe-2"></i>Hide post</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascriptvoid(0);">
+                <i class="bi bi-slash-circle fa-fw pe-2"></i>Block</a
+              >
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascriptvoid(0);">
+                <i class="bi bi-flag fa-fw pe-2"></i>Report post</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-body pb-0">
+        <p>
+          Find out how you can save time in the classroom this year. Earn
+          recognition while you learn new skills on iPad and Mac. Start
+          recognition your first Apple Teacher badge today!
+        </p>
+
+        <ul class="nav nav-stack pb-2 small">
+          <li class="nav-item">
+            <a
+              class="nav-link active text-secondary"
+              href="javascript:void(0);"
+            >
+              <i
+                class="bi bi-heart-fill me-1 icon-xs bg-danger text-white rounded-circle"
+              ></i>
+              Louis, Billy and 126 others
+            </a>
+          </li>
+          <li class="nav-item ms-sm-auto">
+            <a class="nav-link" href="javascript:void(0);">
+              <i class="bi bi-chat-fill pe-1"></i>Comments (12)</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="card-footer py-3">
+        <ul class="nav nav-fill nav-stack small">
+          <li class="nav-item">
+            <a class="nav-link mb-0 active" href="javascript:void(0);">
+              <i class="bi bi-heart pe-1"></i>Liked (56)</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mb-0" href="javascript:void(0);">
+              <i class="bi bi-chat-fill pe-1"></i>Comments (12)</a
+            >
+          </li>
+
+          <li class="nav-item dropdown" ngbDropdown>
+            <a
+              href="javascriptvoid(0);"
+              ngbDropdownToggle
+              class="nav-link mb-0"
+              id="cardShareAction6"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-reply-fill flip-horizontal ps-1"></i>Share (3)
+            </a>
+
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              ngbDropdownMenu
+              aria-labelledby="cardShareAction6"
+            >
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-envelope fa-fw pe-2"></i>Send via Direct
+                  Message</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-bookmark-check fa-fw pe-2"></i>Bookmark
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-link fa-fw pe-2"></i>Copy link to post</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-share fa-fw pe-2"></i>Share post via …</a
+                >
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="javascriptvoid(0);">
+                  <i class="bi bi-pencil-square fa-fw pe-2"></i>Share to News
+                  Feed</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link mb-0" href="javascript:void(0);">
+              <i class="bi bi-send-fill pe-1"></i>Send</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-header border-0 pb-0">
+        <h5 class="card-title">About</h5>
+      </div>
+
+      <div class="card-body position-relative pt-0">
+        <p>
+          He moonlights difficult engrossed it, sportsmen. Interested has all
+          Devonshire difficulty gay assistance joy.
+        </p>
+
+        <ul class="list-unstyled mt-3 mb-0">
+          <li class="mb-2">
+            <i class="bi bi-calendar-date fa-fw pe-1"></i> People:
+            <strong> 20 Members </strong>
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-heart fa-fw pe-1"></i> Status:
+            <strong> Public </strong>
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-globe2 fa-fw pe-1"></i>
+            <strong>www.techzaa.com </strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template
+  #content
+  let-modal
+  class="modal fade"
+  id="modalCreateFeed"
+  tabindex="-1"
+  aria-labelledby="modalLabelCreateFeed"
+  aria-hidden="true"
+>
+  <div class="modal-header">
+    <h5 class="modal-title" id="modalLabelCreateFeed">Create post</h5>
+    <button
+      type="button"
+      (click)="modal.close()"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="modal-body">
+    <div class="d-flex mb-3">
+      <div class="avatar avatar-xs me-2">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/03.jpg"
+          alt=""
+        />
+      </div>
+
+      <form class="w-100">
+        <textarea
+          class="form-control pe-4 fs-3 lh-1 border-0"
+          rows="4"
+          placeholder="Share your thoughts..."
+          autofocus
+        ></textarea>
+      </form>
+    </div>
+
+    <div class="hstack gap-2">
+      <a
+        class="icon-md bg-success bg-opacity-10 text-success rounded-circle"
+        href="javascript:void(0);"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Photo"
+      >
+        <i class="bi bi-image-fill"></i>
+      </a>
+      <a
+        class="icon-md bg-info bg-opacity-10 text-info rounded-circle"
+        href="javascript:void(0);"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Video"
+      >
+        <i class="bi bi-camera-reels-fill"></i>
+      </a>
+      <a
+        class="icon-md bg-danger bg-opacity-10 text-danger rounded-circle"
+        href="javascript:void(0);"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Events"
+      >
+        <i class="bi bi-calendar2-event-fill"></i>
+      </a>
+      <a
+        class="icon-md bg-warning bg-opacity-10 text-warning rounded-circle"
+        href="javascript:void(0);"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Feeling/Activity"
+      >
+        <i class="bi bi-emoji-smile-fill"></i>
+      </a>
+      <a
+        class="icon-md bg-light text-secondary rounded-circle"
+        href="javascript:void(0);"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Check in"
+      >
+        <i class="bi bi-geo-alt-fill"></i>
+      </a>
+      <a
+        class="icon-md bg-primary bg-opacity-10 text-primary rounded-circle"
+        href="javascript:void(0);"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Tag people on top"
+      >
+        <i class="bi bi-tag-fill"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="modal-footer row justify-content-between">
+    <div class="col-lg-3">
+      <select
+        class="form-select js-choice"
+        data-position="top"
+        data-search-enabled="false"
+      >
+        <option value="PB">Public</option>
+        <option value="PV">Friends</option>
+        <option value="PV">Only me</option>
+        <option value="PV">Custom</option>
+      </select>
+    </div>
+
+    <div class="col-lg-8 text-sm-end">
+      <button type="button" class="btn btn-danger-soft me-2">
+        <i class="bi bi-camera-video-fill pe-1"></i> Live video
+      </button>
+      <button type="button" class="btn btn-success-soft">Post</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template
+  #photo
+  let-photo
+  class="modal fade"
+  id="feedActionPhoto"
+  tabindex="-1"
+  aria-labelledby="feedActionPhotoLabel"
+  aria-hidden="true"
+>
+  <div class="modal-header">
+    <h5 class="modal-title" id="feedActionPhotoLabel">Add post photo</h5>
+    <button
+      type="button"
+      (click)="photo.close()"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="modal-body">
+    <div class="d-flex mb-3">
+      <div class="avatar avatar-xs me-2">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/03.jpg"
+          alt=""
+        />
+      </div>
+
+      <form class="w-100">
+        <textarea
+          class="form-control pe-4 fs-3 lh-1 border-0"
+          rows="2"
+          placeholder="Share your thoughts..."
+        ></textarea>
+      </form>
+    </div>
+
+    <div>
+      <label class="form-label">Upload attachment</label>
+      <div
+        class="dropzone dropzone-default card shadow-none"
+        [dropzone]="dropzoneConfig"
+        (success)="onUploadSuccess($event)"
+        data-dropzone='{"maxFiles":2}'
+      >
+        <div class="dz-message">
+          <i class="bi bi-images display-3"></i>
+          <p>Drag here or click to upload photo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-danger-soft me-2"
+      data-bs-dismiss="modal"
+    >
+      Cancel
+    </button>
+    <button type="button" class="btn btn-success-soft">Post</button>
+  </div>
+</ng-template>
+
+<ng-template
+  #feedModal
+  let-feedModal
+  class="modal fade"
+  id="feedActionVideo"
+  tabindex="-1"
+  aria-labelledby="feedActionVideoLabel"
+  aria-hidden="true"
+>
+  <div class="modal-header">
+    <h5 class="modal-title" id="feedActionVideoLabel">Add post video</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+      (click)="feedModal.close('')"
+    ></button>
+  </div>
+
+  <div class="modal-body">
+    <div class="d-flex mb-3">
+      <div class="avatar avatar-xs me-2">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/03.jpg"
+          alt=""
+        />
+      </div>
+
+      <form class="w-100">
+        <textarea
+          class="form-control pe-4 fs-3 lh-1 border-0"
+          rows="2"
+          placeholder="Share your thoughts..."
+        ></textarea>
+      </form>
+    </div>
+
+    <div>
+      <label class="form-label">Upload attachment</label>
+      <div
+        class="dropzone dropzone-default card shadow-none"
+        [dropzone]="dropzoneConfig"
+        (success)="onUploadSuccess($event)"
+        data-dropzone='{"maxFiles":2}'
+      >
+        <div class="dz-message">
+          <i class="bi bi-camera-reels display-3"></i>
+          <p>Drag here or click to upload video.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger-soft me-2">
+      <i class="bi bi-camera-video-fill pe-1"></i> Live video
+    </button>
+    <button type="button" class="btn btn-success-soft">Post</button>
+  </div>
+</ng-template>
+
+<ng-template
+  #createEvent
+  let-createmodal
+  class="modal fade"
+  id="modalCreateEvents"
+  tabindex="-1"
+  aria-labelledby="modalLabelCreateAlbum"
+  aria-hidden="true"
+>
+  <div class="modal-header">
+    <h5 class="modal-title" id="modalLabelCreateAlbum">Create event</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+      (click)="createmodal.close('')"
+    ></button>
+  </div>
+
+  <div class="modal-body">
+    <form class="row g-4">
+      <div class="col-12">
+        <label class="form-label">Title</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Event name here"
+        />
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          rows="2"
+          placeholder="Ex: topics, schedule, etc."
+        ></textarea>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="form-label">Date</label>
+        <input
+          type="text"
+          class="form-control flatpickr"
+          placeholder="Select date"
+        />
+      </div>
+
+      <div class="col-sm-4">
+        <label class="form-label">Time</label>
+        <input
+          type="text"
+          class="form-control flatpickr"
+          data-enableTime="true"
+          data-noCalendar="true"
+          placeholder="Select time"
+        />
+      </div>
+
+      <div class="col-sm-4">
+        <label class="form-label">Duration</label>
+        <input type="email" class="form-control" placeholder="1hr 23m" />
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Location</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Logansport, IN 46947"
+        />
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Add guests</label>
+        <input type="email" class="form-control" placeholder="Guest email" />
+      </div>
+
+      <div class="col-12 mt-3">
+        <ul class="avatar-group list-unstyled align-items-center mb-0">
+          <li class="avatar avatar-xs">
+            <img
+              class="avatar-img rounded-circle"
+              src="assets/images/avatar/01.jpg"
+              alt="avatar"
+            />
+          </li>
+          <li class="avatar avatar-xs">
+            <img
+              class="avatar-img rounded-circle"
+              src="assets/images/avatar/02.jpg"
+              alt="avatar"
+            />
+          </li>
+          <li class="avatar avatar-xs">
+            <img
+              class="avatar-img rounded-circle"
+              src="assets/images/avatar/03.jpg"
+              alt="avatar"
+            />
+          </li>
+          <li class="avatar avatar-xs">
+            <img
+              class="avatar-img rounded-circle"
+              src="assets/images/avatar/04.jpg"
+              alt="avatar"
+            />
+          </li>
+          <li class="avatar avatar-xs">
+            <img
+              class="avatar-img rounded-circle"
+              src="assets/images/avatar/05.jpg"
+              alt="avatar"
+            />
+          </li>
+          <li class="avatar avatar-xs">
+            <img
+              class="avatar-img rounded-circle"
+              src="assets/images/avatar/06.jpg"
+              alt="avatar"
+            />
+          </li>
+          <li class="avatar avatar-xs">
+            <img
+              class="avatar-img rounded-circle"
+              src="assets/images/avatar/07.jpeg"
+              alt="avatar"
+            />
+          </li>
+          <li class="ms-3">
+            <small> +50 </small>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <label class="form-label">Upload attachment</label>
+        <div
+          class="dropzone dropzone-default card shadow-none"
+          [dropzone]="dropzoneConfig"
+          (success)="onUploadSuccess($event)"
+          data-dropzone='{"maxFiles":2}'
+        >
+          <div class="dz-message">
+            <i class="bi bi-file-earmark-text display-3"></i>
+            <p>Drop presentation and document here or click to upload.</p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-danger-soft me-2"
+      data-bs-dismiss="modal"
+    >
+      Cancel
+    </button>
+    <button type="button" class="btn btn-success-soft">Create now</button>
+  </div>
+</ng-template>

@@ -1,0 +1,29 @@
+<footer class="bg-mode py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="nav justify-content-center justify-content-md-start lh-1">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/profile/feed">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" href="docs/index.html">Docs </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/privacy-and-terms"
+              >Privacy & terms</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <p class="text-center text-md-end mb-0">
+          ©{{ currentYear }}
+          <a class="text-body" href="javascript:void(0);">
+            {{ credits.name }} </a
+          >All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

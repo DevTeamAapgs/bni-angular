@@ -1,0 +1,162 @@
+@import "../public/assets/vendor/zuck.js/dist/zuck.css";
+@import "../node_modules/dropzone/dist/dropzone.css";
+@import "../node_modules/choices.js/public/assets/styles/choices.min.css";
+
+.item {
+  display: block;
+  width: 100%;
+  padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+  clear: both;
+  font-weight: 500;
+  color: var(--bs-dropdown-link-color);
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+.item.active {
+  color: var(--bs-primary);
+}
+.pointer{
+  cursor: pointer !important;
+}
+.custom-lead-number{
+  border: 1px solid #2085ff;
+  border-radius: 15px;
+  padding: 5px;
+  width: 22px;
+  height: 25px;
+  font-size: 11px;
+  background: #2085ff;
+  color: white;
+  text-align: center;
+  margin-left: 7px;
+}
+.custom-message-count{
+  border: 1px solid;
+  border-radius: 15px;
+  font-size: 12px;
+  width: 17px !important;
+  position: absolute;
+  text-align: center;
+  top: 12px;
+}
+.bg-primary-soft{
+  background-color: rgba(15, 111, 236, 0.1) !important;
+
+}
+.lead-canvas {
+  width: 80% !important; /* Default for mobile and tablet */
+}
+
+@media (min-width: 1024px) {
+  .lead-canvas {
+    width: 50% !important; /* For laptops and larger screens */
+  }
+}.bni-left {
+  background: #f1f1f1; // You can change this to a brand color
+  padding: 2rem;
+  text-align: center;
+}
+
+.bni-left img {
+  max-width: 300px;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .bni-left {
+    display: none; // hide on small screens
+  }
+}
+
+
+/* Gradient Background for the right half */
+.bg-login {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+}
+
+/* Left side logo panel */
+.bni-left {
+  background: #ffffff;
+  padding: 3rem;
+  border-right: 1px solid #e0e0e0;
+}
+
+/* Glass-like container for the login */
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Input Styling */
+.soft-input {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.soft-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(90, 125, 255, 0.3);
+}
+
+/* Button hover effect */
+button.btn-dark:hover {
+  background-color: #000000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon cursor */
+.fa-eye,
+.fa-eye-slash {
+  font-size: 1.2rem;
+  color: #555;
+}
+.hover-primary:hover{
+color: #2376db !important;
+}
+.application-custom-primary-button{
+  border: 1px solid #004dff00;
+    padding: 6px;
+    border-radius: 6px;
+    background: #004bfaed;
+    color: white;
+}
+.scroll{
+  max-height: 100dvh !important;
+  overflow: auto;
+}
+
+/* Scoped WebKit Scrollbar for .scroll */
+.scroll::-webkit-scrollbar {
+  width: 4px !important;
+  height: 8px !important;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: #f0f0f0;  /* Or transparent */
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+  border: 2px solid transparent;  /* Adds spacing inside the track */
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #66666635;
+}
+
+/* Optional Firefox Support */
+.scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #a4a4a4a2 #f0f0f0;
+}

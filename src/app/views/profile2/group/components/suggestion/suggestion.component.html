@@ -1,0 +1,91 @@
+<div class="row g-4">
+  @for (item of allGroupsData; track $index) {
+    @if ($index < 3) {
+      <div class="col-sm-6 col-lg-4">
+        <div class="card">
+          <div
+            class="h-80px rounded-top"
+            [style.background-image]="'url(' + item.background_image + ')'"
+            style="
+              background-position: center;
+              background-size: cover;
+              background-repeat: no-repeat;
+            "
+          ></div>
+
+          <div class="card-body text-center pt-0">
+            <div class="avatar avatar-lg mt-n5 mb-3">
+              <a [routerLink]="item.group_link"
+                ><img
+                  class="avatar-img rounded-circle border border-white border-3 bg-white"
+                  [src]="item.avatar_image"
+                  alt=""
+              /></a>
+            </div>
+
+            <h5 class="mb-0">
+              <a [routerLink]="item.group_link">{{ item.group_name }}</a>
+            </h5>
+            <small>
+              <i class="bi {{ item.icon }} pe-1"></i> {{ item.privacy }}</small
+            >
+
+            <div class="hstack gap-2 gap-xl-3 justify-content-center mt-3">
+              <div>
+                <h6 class="mb-0">{{ item.members }}</h6>
+                <small>Members</small>
+              </div>
+
+              <div class="vr"></div>
+
+              <div>
+                <h6 class="mb-0">{{ item.posts_per_day }}</h6>
+                <small>Post per day</small>
+              </div>
+            </div>
+
+            <ul
+              class="avatar-group list-unstyled align-items-center justify-content-center mb-0 mt-3"
+            >
+              @for (avatar of item.avatars; track $index) {
+                @if (
+                  (item.avatars.length >= 4 && $index <= 3) ||
+                  (item.avatars.length < 4 && $index < item.avatars.length - 1)
+                ) {
+                  <li class="avatar avatar-xs">
+                    <img
+                      class="avatar-img rounded-circle"
+                      [src]="avatar"
+                      alt="avatar"
+                    />
+                  </li>
+                } @else if (item.avatars.length >= 4) {
+                  <li class="avatar avatar-xs">
+                    <div class="avatar-img rounded-circle bg-primary">
+                      <span
+                        class="smaller text-white position-absolute top-50 start-50 translate-middle"
+                        >+{{ item.avatars.length - 4 + 12 }}</span
+                      >
+                    </div>
+                  </li>
+                }
+              }
+            </ul>
+          </div>
+
+          <div class="card-footer text-center">
+            @if (item.join_grp) {
+              <a class="btn btn-success-soft btn-sm" href="javascript:void(0);">
+                Join group
+              </a>
+            } @else {
+              <a class="btn btn-danger-soft btn-sm" href="javascript:void(0);">
+                Leave group
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>

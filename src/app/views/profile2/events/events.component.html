@@ -1,0 +1,91 @@
+@if (!staticAlertClosed) {
+  <ngb-alert
+    #staticAlert
+    (closed)="staticAlertClosed = true"
+    [type]="'success'"
+  >
+    <strong>Upcoming event:</strong> The learning conference on Sep 19
+    {{ currentYear }}
+    <a
+      routerLink="/event-details"
+      class="btn btn-xs btn-success mt-2 mt-md-0 ms-md-4"
+      >View event</a
+    ></ngb-alert
+  >
+}
+
+<div class="card mt-4">
+  <div
+    class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0"
+  >
+    <h1 class="h4 card-title">Discover Events</h1>
+
+    <a
+      class="btn btn-primary-soft"
+      href="javascript:void(0);"
+      data-bs-toggle="modal"
+      data-bs-target="#modalCreateEvents"
+    >
+      <i class="fa-solid fa-plus pe-1"></i> Create event</a
+    >
+  </div>
+
+  <div class="card-body">
+    <ul
+      ngbNav
+      #nav="ngbNav"
+      class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start"
+    >
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#tab-1">
+          Top
+        </a>
+        <ng-template ngbNavContent>
+          <events-top />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#tab-2">
+          Local
+        </a>
+        <ng-template ngbNavContent>
+          <event-local />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#tab-3">
+          This week
+        </a>
+        <ng-template ngbNavContent>
+          <events-this-week />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#tab-4">
+          Online
+        </a>
+        <ng-template ngbNavContent>
+          <events-this-week />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#tab-5">
+          Friends
+        </a>
+        <ng-template ngbNavContent>
+          <events-friends />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#tab-6">
+          Following
+        </a>
+        <ng-template ngbNavContent>
+          <events-following />
+        </ng-template>
+      </li>
+    </ul>
+
+    <div class="tab-content mb-0 pb-0" [ngbNavOutlet]="nav"></div>
+  </div>
+</div>

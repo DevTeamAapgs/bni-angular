@@ -1,0 +1,80 @@
+<div class="card">
+  <div class="card-header border-0 pb-0">
+    <h5 class="card-title">Activity feed</h5>
+  </div>
+
+  <div class="card-body">
+    <div class="timeline">
+      @for (item of allTimelineData; track $index) {
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <div class="avatar text-center">
+              @if (item.avatar) {
+                <img
+                  class="avatar-img rounded-circle"
+                  [src]="item.avatar"
+                  alt=""
+                />
+              } @else {
+                <div class="avatar text-center">
+                  <div class="avatar-img rounded-circle bg-success">
+                    <span
+                      class="text-white position-absolute top-50 start-50 translate-middle fw-bold"
+                      >SM</span
+                    >
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="timeline-content">
+            <div class="d-sm-flex justify-content-between">
+              <div>
+                <p class="small mb-0">
+                  <b>{{ item.user }}</b> {{ item.action }}
+                </p>
+                @if (item.comment) {
+                  <p class="small mb-0">{{ item.comment }}</p>
+                } @else {
+                  <p class="small mb-0">
+                    <i class="{{ item.visibility_icon }} pe-1"></i>
+                    {{ item.visibility }}
+                  </p>
+                }
+                @if (item.reply) {
+                  <small class="bg-light rounded p-2 d-block">
+                    {{ item.reply }}
+                  </small>
+                }
+              </div>
+              <p class="small ms-sm-3 mt-2 mt-sm-0 text-nowrap">
+                {{ item.timestamp }}
+              </p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div
+    class="card-footer border-0 py-3 text-center position-relative d-grid pt-0"
+  >
+    <a
+      role="button"
+      class="btn btn-sm btn-loader btn-primary-soft"
+      [class.active]="isActive === true"
+      (click)="isActive = !isActive"
+      data-bs-toggle="button"
+      aria-pressed="true"
+    >
+      <span class="load-text"> Load more activity </span>
+      <div class="load-icon">
+        <div class="spinner-grow spinner-grow-sm" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

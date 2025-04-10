@@ -1,0 +1,74 @@
+<div class="pb-5">
+  <h4 class="text-center mb-4">Popular articles</h4>
+
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="vstack gap-4">
+        @for (item of allArticles; track $index) {
+          <div class="card card-body">
+            <div class="d-md-flex justify-content-between align-items-start">
+              <div class="mb-2 mb-md-0">
+                <h5 class="mb-1">
+                  <a href="javascript:void(0);">{{ item.title }}</a>
+                </h5>
+                <p class="small mb-0">{{ item.description }}</p>
+              </div>
+
+              <div
+                class="btn-group"
+                role="group"
+                aria-label="Basic radio toggle button group"
+              >
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="article1"
+                  id="articleup1"
+                />
+                <label
+                  class="btn btn-outline-light btn-sm mb-0"
+                  for="articleup1"
+                  ><i class="fa-solid fa-thumbs-up me-1"></i>
+                  {{ item.votes.upvotes }}</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="article1"
+                  id="articledown1"
+                  checked
+                />
+                <label
+                  class="btn btn-outline-light btn-sm mb-0"
+                  for="articledown1"
+                >
+                  {{ item.votes.downvotes | number: '2.0' }}
+                  <i class="fa-solid fa-thumbs-down ms-1"></i
+                ></label>
+              </div>
+            </div>
+          </div>
+        }
+
+        <div class="text-center">
+          <a
+            role="button"
+            [class.active]="isSpinner === true"
+            (click)="isSpinner = !isSpinner"
+            class="btn btn-loader btn-primary-soft mb-0"
+            data-bs-toggle="button"
+            aria-pressed="true"
+          >
+            <span class="load-text"> Load more </span>
+            <div class="load-icon">
+              <div class="spinner-grow spinner-grow-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

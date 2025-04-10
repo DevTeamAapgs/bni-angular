@@ -1,0 +1,269 @@
+<header [class]="headerClass">
+  <nav [class]="'navbar navbar-expand-lg ' + navClass">
+    <div [ngClass]="containerClass ? 'container-fluid px-lg-5' : 'container'">
+      <a class="navbar-brand" routerLink="/">
+        <img
+          class="light-mode-item navbar-brand-item"
+          src="assets/images/bni_logo.JPG"
+          alt="logo"
+        />
+        <img
+          class="dark-mode-item navbar-brand-item"
+          src="assets/images/bni_logo.JPG"
+          alt="logo"
+        />
+      </a>
+
+   
+
+     
+
+      <ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled" style="padding: 8px;">
+        @if (showIcon) {
+          
+          <li class="nav-item dropdown ms-2" ngbDropdown>
+            <a
+              class="nav-link bg-light icon-md btn btn-light p-0 arrow-none"
+              ngbDropdownToggle
+              href="javascript:void(0);"
+              id="notifDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              data-bs-auto-close="outside"
+            >
+              <span class="badge-notif animation-blink"></span>
+              <i class="bi bi-bell-fill fs-6"> </i>
+            </a>
+            <div
+              ngbDropdownMenu
+              class="dropdown-menu dropdown-animation dropdown-menu-end dropdown-menu-size-md p-0 shadow-lg border-0"
+              aria-labelledby="notifDropdown"
+            >
+              <div class="card">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <h6 class="m-0">
+                    Notifications
+                    <span class="badge bg-danger bg-opacity-10 text-danger ms-2"
+                      >4 new</span
+                    >
+                  </h6>
+                </div>
+                <div class="card-body p-0">
+                  <ul class="list-group list-group-flush list-unstyled p-2">
+                    <li>
+                      <div
+                        class="list-group-item list-group-item-action rounded badge-unread d-flex border-0 mb-1 p-3"
+                      >
+                        <div
+                          class="avatar text-center d-none d-sm-inline-block"
+                        >
+                          <img
+                            class="avatar-img rounded-circle"
+                            src="assets/images/avatar/01.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="ms-sm-3">
+                          <div class="d-flex">
+                            <p class="small mb-2">
+                              <b>Judy Nguyen</b> sent you a friend request.
+                            </p>
+                            <p class="small ms-3 text-nowrap">Just now</p>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </li>
+
+                 
+                  </ul>
+                </div>
+                <div class="card-footer text-center">
+                  <a (click)="openTemplate(AllNotifications)"
+                    href="javascript:void(0);"
+                    class="btn btn-sm btn-primary-soft"
+                    >See all incoming activity</a
+                  >
+                </div>
+              </div>
+            </div>
+          </li>
+        }
+        <app-profile-dropdown />
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+<ng-template #AllNotifications let-modal>
+  <div class="offcanvas-header pb-0">
+    <h5 class="offcanvas-title">Notifications</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <hr class="my-1" />
+
+  <div class="offcanvas-body p-0">
+    <!-- Notifications List -->
+    <div class="list-group list-group-flush">
+      <a href="javascript:void(0);" class="list-group-item list-group-item-action d-flex align-items-start gap-3 py-3">
+        <img routerLink="/profile/feed" (click)="closeModel()"  src="assets/images/avatar/04.jpg" alt="avatar" class="pointer rounded-circle avatar avatar-sm flex-shrink-0" />
+        <div class="flex-grow-1">
+          <div class="d-flex justify-content-between">
+            <strong class="mb-1">John Doe</strong>
+            <small class="text-muted">2 min ago</small>
+          </div>
+          <small class="text-muted">John Doe started following you</small>
+        </div>
+      </a>
+
+      <a href="javascript:void(0);" class="list-group-item list-group-item-action d-flex align-items-start gap-3 py-3">
+        <div class="avatar avatar-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold">
+          <i class="bi bi-envelope"></i>
+        </div>
+        <div class="flex-grow-1">
+          <div class="d-flex justify-content-between">
+            <strong class="mb-1">New message received</strong>
+            <small class="text-muted">5 min ago</small>
+          </div>
+          <small class="text-muted">You got a message from Alex</small>
+        </div>
+      </a>
+
+      <a href="javascript:void(0);" class="list-group-item list-group-item-action d-flex align-items-start gap-3 py-3">
+        <img routerLink="/profile/feed" (click)="closeModel()"  src="assets/images/avatar/03.jpg" alt="avatar" class="rounded-circle avatar avatar-sm flex-shrink-0" />
+        <div class="flex-grow-1">
+          <div class="d-flex justify-content-between">
+            <strong class="mb-1">Invitation to join project</strong>
+            <small class="text-muted">1 hr ago</small>
+          </div>
+          <small class="text-muted">Team Aurora wants to add you</small>
+        </div>
+      </a>
+    </div>
+
+    <!-- Load More Button -->
+    <div class="text-center my-3">
+      <button type="button" class="btn btn-sm btn-outline-secondary">Load More</button>
+    </div>
+  </div>
+</ng-template>
+
+
+
+
+
+
+<ng-template
+  #MenuItemWithChildren
+  let-menu="menu"
+  let-subLinkClass="subLinkClass"
+  let-menuItems="menuItems"
+  let-subMenuClassNames="subMenuClassNames"
+  let-subsubLinkClass="subsubLinkClass"
+>
+  <li [class]="menuItems" ngbDropdown>
+    <a
+      [attr.aria-controls]="menu.key"
+      ngbDropdownToggle
+      [ngClass]="{ active: activeMenuItems.includes(menu.key) }"
+      [class]="subLinkClass"
+      id="homeMenu"
+      aria-haspopup="true"
+      aria-expanded="false"
+      >{{ menu.label }}</a
+    >
+    <ul [class]="subMenuClassNames" aria-labelledby="homeMenu" ngbDropdownMenu>
+      <ng-container *ngFor="let child of menu.children">
+        <ng-container *ngIf="hasSubmenu(child); else menuItem">
+          <li ngbDropdown class="dropdown-submenu dropend">
+            <a
+              [ngClass]="{ active: activeMenuItems.includes(child.key) }"
+              ngbDropdownToggle
+              class="dropdown-item item"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >{{ child.label }}</a
+            >
+            <ul ngbDropdownMenu>
+              @for (subChild of child.children; track $index) {
+                <li>
+                  <a
+                    [routerLink]="subChild.url"
+                    [ngClass]="{
+                      active: activeMenuItems.includes(subChild.key),
+                    }"
+                    class="dropdown-item"
+                    [attr.aria-controls]="subChild.key"
+                    id="homeMenu"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >{{ subChild.label }}</a
+                  >
+                </li>
+                <ng-container *ngIf="subChild.divider">
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                </ng-container>
+              }
+            </ul>
+          </li>
+        </ng-container>
+        <ng-template #menuItem>
+          <ng-container
+            *ngTemplateOutlet="
+              MenuItem;
+              context: { menu: child, linkClassName: 'dropdown-item' }
+            "
+          >
+          </ng-container>
+        </ng-template>
+      </ng-container>
+    </ul>
+  </li>
+</ng-template>
+
+<ng-template #MenuItem let-menu="menu" let-linkClassName="linkClassName">
+  <li class="nav-item" ngbDropdown>
+    <ng-container
+      *ngTemplateOutlet="
+        menuItemLink;
+        context: { menu: menu, className: linkClassName }
+      "
+    ></ng-container>
+  </li>
+  <ng-container *ngIf="menu.divider">
+    <li>
+      <hr class="dropdown-divider" />
+    </li>
+  </ng-container>
+</ng-template>
+
+<ng-template #menuItemLink let-menu="menu" let-className="className">
+  @if (menu.icon) {
+    <a
+      [ngClass]="{ active: activeMenuItems.includes(menu.key) }"
+      [attr.aria-controls]="menu.key"
+      [class]="className"
+      href="{{ credits.buyLink }}"
+    >
+      <i class="text-success fa-fw bi bi-cloud-download-fill me-2"></i
+      >{{ menu.label }}
+    </a>
+  } @else {
+    <a
+      [routerLink]="menu.url"
+      [ngClass]="{ active: activeMenuItems.includes(menu.key) }"
+      [attr.aria-controls]="menu.key"
+      [class]="className"
+      id="homeMenu"
+      aria-haspopup="true"
+      aria-expanded="false"
+      >{{ menu.label }}</a
+    >
+  }
+</ng-template>

@@ -1,0 +1,12 @@
+<div overlay-scrollbars class="nav-sidenav p-4 bg-mode h-100 custom-scrollbar">
+  <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+    @for (item of allNavigationData; track $index) {
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="item.url">
+          <i class="{{ item.icon }} nav-icon"></i>
+          <span class="nav-text">{{ item.name }} </span>
+        </a>
+      </li>
+    }
+  </ul>
+</div>

@@ -1,0 +1,53 @@
+<section class="py-4 py-sm-5">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-4">
+        <h2 class="h1">Take a look at our big set of features</h2>
+        <p class="mb-4">Express besides it present if at an opinion visitor.</p>
+        <a class="btn btn-dark" href="javascript:void(0);">Download now</a>
+      </div>
+
+      <div class="col-lg-8">
+        <div
+          class="card card-body bg-mode shadow-none border-0 p-4 p-sm-5 pb-sm-0 overflow-hidden"
+        >
+          <div class="row g-4">
+            <div class="col-md-6">
+              <img class="h-50px" src="assets/images/elements/05.svg" alt="" />
+              <h4 class="mt-4">Built-in digital wallet</h4>
+              <p class="mb-0">
+                Yet uncommonly his ten who diminution astonished. Demesne new
+                manners savings staying had. Under folly balls.
+              </p>
+            </div>
+            <div class="col-md-6 text-end">
+              <div
+                class="iphone-x iphone-x-small iphone-x-half mb-n5 mt-0"
+                style="
+                  background: url(assets/images/mockup/app-placeholder3.jpg);
+                  background-size: 100%;
+                "
+              >
+                <i></i>
+                <b></b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      @for (item of featuresData; track $index) {
+        <div class="col-md-4">
+          <div class="card card-body bg-mode shadow-none border-0 p-4 p-lg-5">
+            <div>
+              <img class="h-50px" [src]="item.image" alt="" />
+            </div>
+
+            <h4 class="mt-4">{{ item.title }}</h4>
+            <p class="mb-0">{{ item.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

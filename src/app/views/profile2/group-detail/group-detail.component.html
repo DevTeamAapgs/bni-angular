@@ -1,0 +1,232 @@
+<div class="card">
+  <div class="card-body">
+    <div
+      class="d-md-flex flex-wrap align-items-start text-center text-md-start"
+    >
+      <div class="mb-2">
+        <div class="avatar avatar-xl">
+          <img
+            class="avatar-img border-0"
+            src="assets/images/logo/13.svg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="ms-md-4 mt-3">
+        <h1 class="h5 mb-0">
+          Apple Education
+          <i class="bi bi-patch-check-fill text-success small"></i>
+        </h1>
+        <ul
+          class="nav nav-divider justify-content-center justify-content-md-start"
+        >
+          <li class="nav-item">Private group</li>
+          <li class="nav-item">28.3K members</li>
+        </ul>
+      </div>
+
+      <div
+        class="d-flex justify-content-center justify-content-md-start align-items-center mt-3 ms-lg-auto"
+      >
+        <button class="btn btn-sm btn-primary-soft me-2" type="button">
+          <i class="bi bi-person-check-fill pe-1"></i> Joined
+        </button>
+        <button class="btn btn-sm btn-success me-2" type="button">
+          <i class="fa-solid fa-plus pe-1"></i> Invite
+        </button>
+        <div class="dropdown" ngbDropdown>
+          <button
+            class="icon-sm btn btn-dark-soft arrow-none"
+            ngbDropdownToggle
+            type="button"
+            id="groupAction"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-three-dots"></i>
+          </button>
+
+          <ul
+            ngbDropdownMenu
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="groupAction"
+          >
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">
+                <i class="bi bi-bookmark fa-fw pe-2"></i>Share profile in a
+                message</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">
+                <i class="bi bi-file-earmark-pdf fa-fw pe-2"></i>Save your
+                profile to PDF</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">
+                <i class="bi bi-lock fa-fw pe-2"></i>Lock profile</a
+              >
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);">
+                <i class="bi bi-gear fa-fw pe-2"></i>Profile settings</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <ul
+      class="avatar-group list-unstyled justify-content-center justify-content-md-start align-items-center mb-0 mt-3 flex-wrap"
+    >
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/01.jpg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/02.jpg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/03.jpg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/04.jpg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/05.jpg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/06.jpg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/07.jpeg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/08.jpg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/09.jpg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs">
+        <img
+          class="avatar-img rounded-circle"
+          src="assets/images/avatar/10.jpg"
+          alt="avatar"
+        />
+      </li>
+      <li class="avatar avatar-xs me-2">
+        <div class="avatar-img rounded-circle bg-primary">
+          <span
+            class="smaller text-white position-absolute top-50 start-50 translate-middle"
+            >+19</span
+          >
+        </div>
+      </li>
+      <li class="small text-center">
+        Carolyn Ortiz, Frances Guerrero, and 20 joined group
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-footer pb-0">
+    <ul
+      ngbNav
+      #nav="ngbNav"
+      class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start mb-0"
+    >
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#group-tab-1">
+          Feed
+        </a>
+        <ng-template ngbNavContent>
+          <group-detail-feed />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#group-tab-2">
+          About
+        </a>
+        <ng-template ngbNavContent>
+          <group-detail-about />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#group-tab-3">
+          Connections
+          <span class="badge bg-success bg-opacity-10 text-success small">
+            230</span
+          >
+        </a>
+        <ng-template ngbNavContent>
+          <group-detail-connection />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#group-tab-4">
+          Media</a
+        >
+        <ng-template ngbNavContent>
+          <group-detail-media />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#group-tab-5">
+          Videos</a
+        >
+        <ng-template ngbNavContent>
+          <group-detail-videos />
+        </ng-template>
+      </li>
+      <li class="nav-item" ngbNavItem>
+        <a ngbNavLink class="nav-link" data-bs-toggle="tab" href="#group-tab-6">
+          Events</a
+        >
+        <ng-template ngbNavContent>
+          <group-detail-events />
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="tab-content pt-0 pb-0 mb-0 mt-4" [ngbNavOutlet]="nav"></div>

@@ -1,0 +1,366 @@
+<div class="card p-4">
+	<div class="text-end mb-3">
+		<button class="btn btn-primary" (click)="openTemplate(addLead,null,'w-25')">+ Add Lead</button>
+	</div>
+
+<!-- Tabs -->
+<ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav nav-tabs ">
+	<li ngbNavItem="1">
+	  <a ngbNavLink>Requested</a>
+	  <ng-template ngbNavContent>
+		<!-- Requested Tab Table -->
+		<div class="row">
+		  <div class="col-sm-12 table-responsive">
+			<table class="table">
+			  <thead>
+				<tr>
+				  <th>Lead No</th>
+				  <th>Lead From</th>
+				  <th>Description</th>
+				  <th>Status</th>
+				  <th>Created On</th>
+				  <th>Actions</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <th scope="row">1</th>
+				  <td>Mark</td>
+				  <td>I think we can approve the exports from our BNI Circle</td>
+				  <td><span class="badge bg-primary">Approved</span></td>
+				  <td class="text-muted">19/09/2024</td>
+				  <td class="text-primary text-center pointer">
+					<span class="btn btn-sm btn-primary-soft" (click)="openTemplate(openLead, leads[0])">
+					  <i class="bi bi-chat-left-text"></i>
+					</span>
+				  </td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		</div>
+	  </ng-template>
+	</li>
+  
+	<li ngbNavItem="2">
+	  <a ngbNavLink>Received</a>
+	  <ng-template ngbNavContent>
+		<!-- Received Tab Table -->
+		<div class="row">
+		  <div class="col-sm-12 table-responsive">
+			<table class="table">
+			  <thead>
+				<tr>
+				  <th>Lead No</th>
+				  <th>Lead From</th>
+				  <th>Description</th>
+				  <th>Status</th>
+				  <th>Created On</th>
+				  <th>Actions</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <th scope="row">1</th>
+				  <td>Beerus</td>
+				  <td>About the deal we discussed. We have to clarify it.</td>
+				  <td><span class="badge bg-warning">Need Clarification</span></td>
+				  <td class="text-muted">18/09/2025</td>
+				  <td class="text-primary text-center pointer">
+					<span class="btn btn-sm btn-primary-soft" (click)="openTemplate(openLead, leads[1])">
+					  <i class="bi bi-chat-left-text"></i>
+					</span>
+				  </td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		</div>
+	  </ng-template>
+	</li>
+  </ul>
+  <div [ngbNavOutlet]="nav" class=""></div>
+  
+
+
+
+	<!-- <div class="row">
+		<div class="col-sm-12 table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Lead No</th>
+						<th scope="col">Lead From</th>
+						<th scope="col">Description</th>
+						<th scope="col">Status</th>
+						<th scope="col">Created On</th>
+						<th scope="col">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Mark</td>
+						<td>I think we can approve the exports from our BNI Circle</td>
+						<td>
+							<span class="badge bg-primary">Approved</span>
+						</td>
+						<td class="text-muted">19/09/2024</td>
+						<td class="text-primary text-center pointer">
+							<span class="btn btn-sm btn-primary-soft" (click)="openTemplate(openLead, leads[0])">
+								<i class="bi bi-chat-left-text"></i>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td class=""> 
+            
+              <span>Beerus</span></td>
+						<td>About the deal we discussed . we have to clarify it.</td>
+						<td>
+							<span class="badge bg-warning">Need Clarification</span>
+						</td>
+						<td class="text-muted">18/09/2025</td>
+						<td class="text-primary text-center pointer">
+							<span class="btn btn-sm btn-primary-soft" (click)="openTemplate(openLead, leads[1])">
+								<i class="bi bi-chat-left-text"></i>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div> -->
+	<!-- Leads List -->
+	<!-- <div class="container mt-3">
+		<h4>Leads</h4>
+		<ul class="list-group">
+			<li *ngFor="let lead of leads" class="list-group-item d-flex align-items-center justify-content-between">
+				<div class="d-flex align-items-center">
+					<img [src]="lead.avatar" class="rounded-circle me-2" width="40" height="40" />
+					<strong>{{ lead.leadFrom }}</strong>
+				</div>
+				<button class="btn btn-sm btn-primary-soft" data-bs-toggle="offcanvas" data-bs-target="#chatOffcanvas" (click)="openChat(lead)">Open Chat</button>
+			</li>
+		</ul>
+	</div> -->
+</div>
+
+<!-- Off Canvas -->
+
+<ng-template #addLead let-modal>
+  <div class="offcanvas-header pb-0">
+    <h5 class="offcanvas-title fw-bold">Add Lead</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Close click')"></button>
+  </div>
+  <hr class="my-1" />
+
+  <div class="offcanvas-body">
+    <form [formGroup]="leadForm">
+      <div class="row g-3">
+
+        <!-- Lead Name -->
+        <div class="col-12">
+          <label for="leadName" class="form-label">Lead Name</label>
+          <input
+            type="text"
+            id="leadName"
+            class="form-control"
+            formControlName="lead_name"
+            placeholder="Enter lead name"
+          />
+        </div>
+
+        <!-- Description -->
+        <div class="col-12">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            id="description"
+            class="form-control"
+            rows="3"
+            formControlName="description"
+            placeholder="Enter description"
+          ></textarea>
+        </div>
+
+        <!-- Attachment -->
+        <div class="col-12">
+          <label for="attachment" class="form-label">Attachment</label>
+          <input
+            type="file"
+            id="attachment"
+            class="form-control"
+            (change)="onFileChange($event)"
+          />
+        </div>
+
+        <!-- Lead Assigned -->
+        <div class="col-12">
+          <label for="assignedTo" class="form-label">Lead Assigned</label>
+          <select
+            id="assignedTo"
+            class="form-select"
+            formControlName="assigned_to"
+          >
+            <option value="">Select user</option>
+            <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-secondary-soft me-2" [disabled]="!leadForm.valid">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-primary" [disabled]="!leadForm.valid">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+
+<ng-template #openLead let-modal>
+	<div class="offcanvas-header pb-0">
+		<img [src]="selectedLead?.avatar" class="rounded-circle me-2" width="40" height="40" />
+		<h5 class="offcanvas-title m-0"><span class="text-muted"> Lead From </span> - {{ selectedLead?.leadFrom }}</h5>
+		<span class="custom-lead-number">{{ selectedLead?.leads }}</span>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Close click')"></button>
+	</div>
+	<hr class="my-1" />
+	<div class="offcanvas-body">
+		<div class="row">
+			<!-- Lead Description -->
+			<div class="px-3 mb-3">
+				<h6 class="fw-bold mb-2">Lead Description</h6>
+				<p>{{ selectedLead?.description }}</p>
+				<!-- Use dynamic description if available -->
+
+				<!-- Attachments from Client -->
+				<div>
+					<h6 class="fw-bold mt-3">Lead Attachments</h6>
+					<ul class="list-unstyled small d-flex flex-wrap">
+						@if (selectedLead.lead_attachments > 0) {
+							<li *ngFor="let msg of selectedLead.lead_attachments" class="mb-1 mx-2">
+								<span>
+									<i class="bi bi-paperclip"></i>
+									<a [href]="msg.attachmentUrl" download>{{ msg }},</a>
+								</span>
+							</li>
+						} @else {
+							<p>No Attachments Found !</p>
+						}
+					</ul>
+				</div>
+			</div>
+
+			<!-- Message Area -->
+			<div class="d-flex flex-column" style="height: 590px">
+				<div class="flex-grow-1 overflow-auto border rounded p-3 bg-light mb-2">
+					<div *ngFor="let msg of selectedLead?.messages" class="mb-3">
+						<div
+							[ngClass]="{
+								'text-end': msg.from === 'You',
+								'text-start': msg.from !== 'You',
+							}"
+						>
+							<div
+								class="d-inline-block p-2 rounded"
+								[ngClass]="{
+									'bg-success text-white': msg.tag === 'Accepted' && msg.from !== 'You',
+									'bg-danger text-white': msg.tag === 'Declined' && msg.from !== 'You',
+									'bg-warning text-dark': msg.tag === 'Need Clarification' && msg.from !== 'You',
+									'text-white': !msg.tag && msg.from === 'You',
+									'bg-secondary text-white': !msg.tag && msg.from !== 'You',
+								}"
+								style="min-width: 120px; max-width: 70%; width: fit-content; word-break: break-word; background: #c1c1c145; color: black"
+							>
+								<!-- Sender and Status in Line -->
+								<div class="fw-bold small">{{ msg.from }}</div>
+								<div class="d-flex justify-content-end align-items-center mb-1">
+									<span
+										*ngIf="msg.tag"
+										class="badge mt-1"
+										[ngClass]="{
+											'bg-success text-white': msg.tag === 'Accepted',
+											'bg-danger text-white': msg.tag === 'Declined',
+											'bg-warning text-dark': msg.tag === 'Need Clarification',
+										}"
+									>
+										{{ msg.tag }}
+									</span>
+								</div>
+
+								<!-- Message Text -->
+								<div class="pt-1">{{ msg.text }}</div>
+
+								<!-- Attachment (if any) -->
+								<div *ngIf="msg.attachment" class="mt-1 small">
+									<i class="bi bi-paperclip"></i>
+									{{ msg.attachment }}
+								</div>
+
+								<!-- Time and Seen/Sent Icon -->
+								<div class="text-end mt-1 small opacity-75">
+									{{ msg.time }}
+									<i
+										*ngIf="msg.from === 'You'"
+										class="bi"
+										[ngClass]="{
+											'bi-check2': msg.status === 'sent',
+											'bi-check2-all text-info': msg.status === 'seen',
+										}"
+									></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Chips for Status -->
+				<!-- STATUS CHIPS -->
+				<div class="mb-2 d-flex">
+					<span
+						class="badge rounded-pill me-2 px-3 py-2"
+						*ngFor="let status of ['Accepted', 'Declined', 'Need Clarification']"
+						[ngClass]="{
+							'bg-success text-white': selectedStatus === 'Accepted' && status === 'Accepted',
+							'bg-danger text-white': selectedStatus === 'Declined' && status === 'Declined',
+							'bg-warning text-dark': selectedStatus === 'Need Clarification' && status === 'Need Clarification',
+							'bg-light text-dark': selectedStatus !== status,
+						}"
+						role="button"
+						style="cursor: pointer; user-select: none"
+						(click)="selectedStatus = selectedStatus === status ? '' : status"
+					>
+						{{ status }}
+					</span>
+				</div>
+
+				<!-- ATTACHMENT (New Line) -->
+				<div *ngIf="selectedFile" class="mb-2">
+					<span class="badge bg-primary-soft text-dark small px-3 py-2">📎 {{ selectedFile.name }}</span>
+				</div>
+
+				<!-- Input Area with Attachment Icon inside input -->
+				<div class="position-relative w-100 mt-2">
+					<input type="text" [(ngModel)]="messageText" class="form-control ps-5" placeholder="Type a message..." />
+
+					<!-- Attachment icon positioned inside input -->
+					<i class="bi bi-paperclip position-absolute top-50 start-0 translate-middle-y ps-3" style="cursor: pointer" (click)="fileInput.click()"></i>
+
+					<!-- Hidden File Input -->
+					<input type="file" hidden #fileInput (change)="handleAttachment($event)" />
+
+					<!-- Send Button -->
+					<span style="border-radius: 1px 30px 33px 0px" class="btn btn-primary btn-sm position-absolute end-0 top-50 translate-middle-y me-1" type="button" (click)="sendMessage()">
+						<i class="bi bi-send"></i>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-template>

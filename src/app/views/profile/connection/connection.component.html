@@ -1,0 +1,151 @@
+<div class="card">
+  <div class="card-header border-0 pb-0 d-flex justify-content-between">
+    <h5 class="card-title">Connections</h5>
+   
+  </div>
+
+  <div class="card-body">
+    <!-- Tabs -->
+    <ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav nav-tabs mb-3">
+      <li ngbNavItem="1">
+        <a ngbNavLink>Following</a>
+        <ng-template ngbNavContent>
+          <ng-container *ngTemplateOutlet="connectionsTemplate; context: { data: followingData , need_message : true }"></ng-container>
+        </ng-template>
+      </li>
+      <li ngbNavItem="2">
+        <a ngbNavLink>Followers</a>
+        <ng-template ngbNavContent>
+          <ng-container *ngTemplateOutlet="connectionsTemplate; context: { data: followersData , need_message : false }"></ng-container>
+        </ng-template>
+      </li>
+      <li ngbNavItem="3">
+        <a ngbNavLink>New Members </a>
+        <ng-template ngbNavContent>
+          <ng-container *ngTemplateOutlet="requestTabTemplate; context: { data: newMembersData }"></ng-container>
+        </ng-template>
+      </li>
+      
+      <li ngbNavItem="4">
+        <a ngbNavLink>Requests <span class="text-primary">&bull;</span></a>
+        <ng-template ngbNavContent>
+          <ng-container *ngTemplateOutlet="connectionsTemplate; context: { data: newMembersData , requests : true}"></ng-container>
+        </ng-template>
+      </li>
+    </ul>
+
+    <!-- Active Tab Content -->
+    <div [ngbNavOutlet]="nav"></div>
+  </div>
+</div>
+
+<!-- Template: Shared Connection Card -->
+<ng-template #connectionsTemplate let-data="data" let-requests = 'requests' let-needMessage = 'need_message'>
+  <div class="card border-0">
+    <div class="card-body">
+      <ng-container *ngFor="let item of data; trackBy: trackByIndex">
+        <div class="d-md-flex align-items-center mb-4">
+          <!-- Avatar -->
+          <div class="avatar me-3 mb-3 mb-md-0">
+            <a href="javascript:void(0);">
+              <img class="avatar-img rounded-circle" [src]="item.avatar" alt="Avatar" />
+            </a>
+          </div>
+
+          <!-- Name, Title, Shared Connections -->
+          <div class="w-100">
+            <div class="d-sm-flex align-items-start">
+              <h6 class="mb-0" routerLink="/profile/feed">
+                <a href="javascript:void(0);">{{ item.name }}</a>
+              </h6>
+              <p class="small ms-sm-2 mb-0">{{ item.title }}</p>
+            </div>
+
+            
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="ms-md-auto d-flex">
+            @if(!requests){
+              
+              <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Unfollow</button>
+              @if(needMessage){
+                <button class="btn btn-primary-soft btn-sm mb-0">Message</button>
+              }
+              
+            }@else{
+              <button class="btn btn-primary-soft btn-sm mb-0 mx-2">Accept</button>
+              <button class="btn btn-danger-soft btn-sm mb-0">Reject</button>
+              
+            }
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Load More Button with Spinner -->
+      <!-- <div class="d-grid">
+        <button
+          class="btn btn-sm btn-loader btn-primary-soft"
+          role="button"
+          [class.active]="isSpinner"
+          (click)="loadMoreConnections()"
+        >
+          <span class="load-text">Load more connections</span>
+          <div class="load-icon" *ngIf="isSpinner">
+            <div class="spinner-grow spinner-grow-sm" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </button>
+      </div> -->
+    </div>
+  </div>
+</ng-template>
+<ng-template #requestTabTemplate let-data="data">
+  <div class="card border-0">
+    <div class="card-body">
+
+      <!-- Filters and Search -->
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 gap-2">
+        <select class="form-select w-auto" [(ngModel)]="selectedCategory">
+          <option value="">All Categories</option>
+          <option *ngFor="let cat of categories">{{ cat }}</option>
+        </select>
+
+        <input
+          type="text"
+          class="form-control w-100 w-md-50"
+          placeholder="Search members by name or email..."
+          [(ngModel)]="searchTerm"
+        />
+      </div>
+
+      <!-- Member Cards -->
+      <div *ngFor="let item of filteredRequests(data)" class="card mb-3 border-light shadow-sm">
+        <div class="card-body d-md-flex align-items-center">
+          <!-- Avatar -->
+          <div class="avatar me-3 mb-3 mb-md-0">
+            <img class="avatar-img rounded-circle" [src]="item.avatar" alt="Avatar" />
+          </div>
+
+          <!-- Info -->
+          <div class="w-100">
+            <h6 class="mb-1">{{ item.name }}</h6>
+            <p class="mb-1 small text-muted">{{ item.company }}</p>
+            <!-- <p class="mb-0 small"><i class="bi bi-envelope me-1"></i>{{ item.email }}</p> -->
+          </div>
+
+          <!-- Actions -->
+          <div class="ms-md-auto">
+            <button class="btn btn-sm btn-primary-soft">Request</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="text-center text-muted mt-4" *ngIf="filteredRequests(data).length === 0">
+        No members found.
+      </div>
+    </div>
+  </div>
+</ng-template>

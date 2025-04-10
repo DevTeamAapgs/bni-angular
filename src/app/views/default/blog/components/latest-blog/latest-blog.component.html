@@ -1,0 +1,54 @@
+<div class="bg-mode p-4">
+  <h1 class="h4 mb-4">Latest blogs</h1>
+
+  @for (item of allBlogData; track $index; let last = $last) {
+    <div class="card bg-transparent border-0">
+      <div class="row g-3">
+        <div class="col-4">
+          <img class="rounded" [src]="item.image" alt="" />
+        </div>
+        <div class="col-8">
+          <a
+            href="javascript:void(0);"
+            class="badge bg-{{ item.category.class }} bg-opacity-10 text-{{
+              item.category.class
+            }} mb-2 fw-bold"
+            >{{ item.category.name }}</a
+          >
+          <h5>
+            <a
+              routerLink="/pages/blog-details"
+              class="btn-link stretched-link text-reset fw-bold"
+              >{{ item.title }}</a
+            >
+          </h5>
+          <div class="d-none d-sm-inline-block">
+            <p class="mb-2">{{ item.description }}</p>
+
+            <a class="small text-secondary" href="javascript:void(0);">
+              <i class="bi {{ item.date_icon_class }} pe-1"></i>
+              {{ item.date }}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    @if (!last) {
+      <hr class="my-4" />
+    }
+  }
+
+  <div class="mt-4">
+    <nav aria-label="navigation">
+      <ngb-pagination
+        [collectionSize]="150"
+        [maxSize]="2"
+        aria-label="Default pagination"
+        class="pagination pagination-light d-inline-block d-md-flex justify-content-center"
+      >
+        <ng-template ngbPaginationPrevious>Prev</ng-template>
+        <ng-template ngbPaginationNext>Next</ng-template>
+      </ngb-pagination>
+    </nav>
+  </div>
+</div>
